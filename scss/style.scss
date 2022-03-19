@@ -7,6 +7,8 @@ $active-color: #F78434;
 }
 
 
+// 1280 px - это ноуты, мониторы, 480 px это телефоны
+
 body {
     margin: 0;
 }
@@ -14,6 +16,11 @@ body {
 .container {
     max-width: 1110px;
     margin: 0 auto;
+    
+    // работает на экране меньше 1200px
+    @media (max-width: 1200px ) {
+        max-width: 90%;
+    }
 }
 
 .header {
@@ -26,11 +33,24 @@ body {
     &-nav {
         display: flex;
 
+        @media (max-width: 700px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
         &-link {
             color: $primary-text-color;
             text-decoration: none;
             margin-left: 42px;
+
+            @media (max-width: 992px) {
+                margin: 10px 20px 0;
+            }
         }
+    }
+
+    @media (max-width: 992px) {
+        flex-direction: column;
     }
         
 }
@@ -45,11 +65,19 @@ body {
     width: 680px;
     position: relative;
 
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
 }
 
 .intro-row {
     display: flex;
     align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+    }
 
 }
 
@@ -65,7 +93,11 @@ body {
     }
 }
 
-
+@media (max-width:768px) {
+    .intro-column, .intro-column:nth-of-type(2) {
+        width: 100%;
+    }
+}
 
 .intro-form {
     position: relative;
